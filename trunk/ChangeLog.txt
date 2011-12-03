@@ -1,0 +1,45 @@
+TODO:
+    -Add the ability to move/detach watch windows.
+    -Add the ability to custom name jobs
+    -Add the ability to define mfb units in xml rather than hardcoded
+
+V2.1.0.1b 01/12/2011
+    * Updated OSOM plugin to fix changes made to rss feed on 01/12/2011
+
+V2.1.0.0 18/03/2010
+
+    * Only plays new incident noise once per plugin, rather than multiple times.
+    * Updated OSOM source plugin to support the new data format.
+    * FIX: Fixed crash when auto-close on safe when delay is set to 0.
+    * Added a few more MFB Decodings 
+
+V2.0.0.0 06/01/2010
+
+    * Now uses Plugins to gather incidents.
+    * Added MFB Incident Plugin.
+    * Moved CFA Incident Gathering code to Plugin.
+    * Can now set Proxy to use for gathering.
+    * FOR DEVS: IncidentWatch.exe now Exposes Interfaces to make plugins.
+    * Now displays last update time in Window Title and Notify Icon.
+    * Pops up a Notify Tooltip when a new job is detected.
+    * Watch windows now identify the service they relate to.
+    * MFB Appliance Prefixes are Decoded, Hold your mouse over the appliance count in the MFB Watch window, or they are decoded in the new incident notify tooltip
+    * CFA/DSE + MFB Watch Windows Improved, click the CFA/MFB/DSE logo to disable fading.
+    * Old CFA public source now utilizes the One Source One Message Source (Locations of fires in maps are better now)
+    * DSE Incidents are now shown as part of the One Source One Message Incident Source. 
+
+V0.9.9.1 Beta
+
+    * Fixed bug when using auto-close of safe incidents
+
+V0.9.9.0 Beta
+
+    * Added open of incident list on double left click of system tray icon
+    * Increased the incident data update delay, also limited this to a minimum of 90 seconds
+    * Sound now played when a new job arrives and when an incident is auto-watched. (Delete autowatch.wav and newjob.wav to remove sounds, or replace the files to add your own custom sounds.)
+    * Can now disable the 'unable to update incidents' message box.
+    * Added the ability to automatically close watch after incident is safe.
+
+V0.9.0 Alpha
+
+    * Initial Release
