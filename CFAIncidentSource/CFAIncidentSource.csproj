@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74E9F4A3-E646-4B17-ABA1-FECCD3F24374}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CFAIncidentSource</RootNamespace>
+    <AssemblyName>OSOMIncidentSource</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\InciWatch\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\InciWatch\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoWatch.cs" />
+    <Compile Include="CFAIncidentSource.cs" />
+    <Compile Include="CFAIncidentSourceOptions.cs" />
+    <Compile Include="Gatherer.cs" />
+    <Compile Include="IncidentItem.cs" />
+    <Compile Include="IncidentItemList.cs" />
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="WatchNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WatchNotification.Designer.cs">
+      <DependentUpon>WatchNotification.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="listen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="unwatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WatchNotification.resx">
+      <DependentUpon>WatchNotification.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InciWatch\InciWatch.csproj">
+      <Project>{39C6B93A-9DC3-48B2-A2ED-0417B3841D50}</Project>
+      <Name>InciWatch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="largeimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="smallimage.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="notify_tran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dse_notify_tran.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

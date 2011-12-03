@@ -1,0 +1,59 @@
+== CREDITS ==
+Thanks to the following cfastream.info people who helped compile this list(in alphabetical order)
+Bobman
+c_lewien
+shan
++A couple of others Whom i havent yet recieved permission to add.
+
+=========== PREFIXES ===========               | Example
+AOC - Acting Operations Commander              | AOC6
+BA - Breathing Apparatus Bus                   | BA38
+BS - Breathing Apparatus Support               | BS38
+CU - Control Unit                              | CU1
+DU - Decontamination Unit                      | DU38
+EMRMB - Emergency Medical Responder            | EMRMB7
+FIU - Fire Investigation Unit                  | FIUA
+LP - Ladder Platform                           | LP1
+P - Pumper                                     | P1A
+PT - Pumper Tanker                             | PT11
+R - Rescue                                     | R27
+RAC - Acting Commander						   | RAC1
+SCI - Scientific Officer                       | SCIA
+T - Transporter (Modular)                      | T10A
+TB - Teleboom                                  | TB10
+UP - Ultra Large Pump                          | UP1
+WT - Water Tanker                              | WT14
+ZC - Zone Car                                  | ZC1A
+
+=========== PEOPLE ===========
+BIBB - Commander A
+CMAT - Commander B
+DDAV - Commander C
+GBRO - Commander D
+MSWI - Commander E
+TKIM - Commander F
+TRIM - Commander G
+KBRO - Commander H
+RDEA - Commander I
+DMIL - Commander J
+UNDY - Commander K
+DYOU - Commander L
+PATT - Commander M
+MCOO - Commander N
+MOCO - Commander O
+MSWY - Commander P
+DARB - Commander Q
+ZAMM - Commander R
+MELE - Commander S
+HUNT - Commander T
+NZAC - Commander U
+DMCC - Commander V
+GARR - Commander W
+
+AMQ - Executive A
+SKW - Executive B
+RIC - Executive C
+PLS - Executive D
+
+=========== SUFFIXES ===========               | Example	
+-FSXX = Responded From FIRE STATION XX         | P10-FS03
