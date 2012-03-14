@@ -3,6 +3,11 @@ TODO:
     -Add the ability to custom name jobs
     -Add the ability to define mfb units in xml rather than hardcoded
 
+v2.2.0.0 14/03/2011
+    * Added ACTFB Incident Plugin
+    * FIX: Updated MFB plugin to take into account small change in MFB rss feed
+    * Removed FGD appliance from Appliance count and added a decode for it
+
 V2.1.0.1b 01/12/2011
     * Updated OSOM plugin to fix changes made to rss feed on 01/12/2011
 

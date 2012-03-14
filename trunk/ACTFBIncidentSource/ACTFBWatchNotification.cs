@@ -1,4 +1,4 @@
-﻿//MFBIncidentSource - This incident source reads the MFB public feed for Incident Watcher
+﻿//ACTFBIncidentSource - This incident source reads the ACTFB public feed for Incident Watcher
 //Copyright (C) 2011  comicalcow
 
 //This program is free software; you can redistribute it and/or
@@ -23,17 +23,17 @@ using System.Text;
 using System.Windows.Forms;
 using InciWatch;
 
-namespace MFBIncidentSource
+namespace ACTFBIncidentSource
 {
-    internal partial class MFBWatchNotification : Form, IWatchNotification
+    internal partial class ACTFBWatchNotification : Form, IWatchNotification
     {
-        private MFBIncidentItem mIncidentItem;
+        private ACTFBIncidentItem mIncidentItem;
         private IWatchList mParent;
-        private MFBIncidentSourceOptions mOptions;
-        private MFBIncidentSource mParentSource;
+        private ACTFBIncidentSourceOptions mOptions;
+        private ACTFBIncidentSource mParentSource;
 
         private bool mfFadeOut;
-        public MFBWatchNotification(MFBIncidentItem IncidentItem, IWatchList Parent, MFBIncidentSourceOptions Options, MFBIncidentSource ParentSource)
+        public ACTFBWatchNotification(ACTFBIncidentItem IncidentItem, IWatchList Parent, ACTFBIncidentSourceOptions Options, ACTFBIncidentSource ParentSource)
         {
             InitializeComponent();
 
@@ -85,7 +85,6 @@ namespace MFBIncidentSource
 
             //Appliance Count
             lblApplianceCount.Text = mIncidentItem.ApplianceCount_GENERIC.ToString();
-            ttDisplay.SetToolTip(lblApplianceCount, "Appliances: \n" + BuildApplianceToolTip(mIncidentItem.Appliances));
             
             //Has the incident stopped?
             returnCode = CheckForJustSafeCheck();
@@ -114,249 +113,12 @@ namespace MFBIncidentSource
             return returnCode;
         }
 
-        private string BuildApplianceToolTip(string[] Appliances)
-        {
-            //Init the return string.
-            string returnString = "";
-
-            if (Appliances.Length == 0)
-            {
-                //There arn't any appliances on scene.
-                return "No Appliances";
-            }
-            else
-            {
-                //We have at least 1 Appliance, build the string.
-                foreach (string appliance in Appliances)
-                {
-                    if (returnString.Length != 0)
-                        returnString += Environment.NewLine;   //Add a newline, only if it isnt the first appliance.
-                    returnString += DecodeApplianceCode(appliance);                
-                }                
-            }
-
-            //Return the string.
-            return returnString;
-        }
-
-        public static string DecodeApplianceCode(string appliance)
-        {
-            string returnString = "";
-
-            //Start with the longer strings and work our way down
-            if (appliance.StartsWith("EMRMB") == true)
-            {
-                returnString = appliance.Replace("EMRMB", "Emergency Medical Unit ");
-            }
-            #region Commander Codes
-            else if (appliance.StartsWith("BIBB") == true)
-            {
-                returnString = appliance.Replace("BIBB", "Commander A");
-            }
-            else if (appliance.StartsWith("CMAT") == true)
-            {
-                returnString = appliance.Replace("CMAT", "Commander B");
-            }
-            else if (appliance.StartsWith("DDAV") == true)
-            {
-                returnString = appliance.Replace("DDAV", "Commander C");
-            }
-            else if (appliance.StartsWith("GBRO") == true)
-            {
-                returnString = appliance.Replace("GBRO", "Commander D");
-            }
-            else if (appliance.StartsWith("MSWI") == true)
-            {
-                returnString = appliance.Replace("MSWI", "Commander E");
-            }
-            else if (appliance.StartsWith("TKIM") == true)
-            {
-                returnString = appliance.Replace("TKIM", "Commander F");
-            }
-            else if (appliance.StartsWith("TRIM") == true)
-            {
-                returnString = appliance.Replace("TRIM", "Commander G");
-            }
-            else if (appliance.StartsWith("KBRO") == true)
-            {
-                returnString = appliance.Replace("KBRO", "Commander H");
-            }
-            else if (appliance.StartsWith("RDEA") == true)
-            {
-                returnString = appliance.Replace("RDEA", "Commander I");
-            }
-            else if (appliance.StartsWith("DMIL") == true)
-            {
-                returnString = appliance.Replace("DMIL", "Commander J");
-            }
-            else if (appliance.StartsWith("UNDY") == true)
-            {
-                returnString = appliance.Replace("UNDY", "Commander K");
-            }
-            else if (appliance.StartsWith("DYOU") == true)
-            {
-                returnString = appliance.Replace("DYOU", "Commander L");
-            }
-            else if (appliance.StartsWith("PATT") == true)
-            {
-                returnString = appliance.Replace("PATT", "Commander M");
-            }
-            else if (appliance.StartsWith("MCOO") == true)
-            {
-                returnString = appliance.Replace("MCOO", "Commander N");
-            }
-            else if (appliance.StartsWith("MOCO") == true)
-            {
-                returnString = appliance.Replace("MOCO", "Commander O");
-            }
-            else if (appliance.StartsWith("MSWY") == true)
-            {
-                returnString = appliance.Replace("MSWY", "Commander P");
-            }
-            else if (appliance.StartsWith("DARB") == true)
-            {
-                returnString = appliance.Replace("DARB", "Commander Q");
-            }
-            else if (appliance.StartsWith("ZAMM") == true)
-            {
-                returnString = appliance.Replace("ZAMM", "Commander R");
-            }
-            else if (appliance.StartsWith("MELE") == true)
-            {
-                returnString = appliance.Replace("MELE", "Commander S");
-            }
-            else if (appliance.StartsWith("HUNT") == true)
-            {
-                returnString = appliance.Replace("HUNT", "Commander T");
-            }
-            else if (appliance.StartsWith("NZAC") == true)
-            {
-                returnString = appliance.Replace("NZAC", "Commander U");
-            }
-            else if (appliance.StartsWith("DMCC") == true)
-            {
-                returnString = appliance.Replace("DMCC", "Commander V");
-            }
-            else if (appliance.StartsWith("GARR") == true)
-            {
-                returnString = appliance.Replace("GARR", "Commander W");
-            }    
-            #endregion
-            #region Executive Commander (DCO & ACO)
-            else if (appliance.StartsWith("AMQ") == true)
-            {
-                returnString = appliance.Replace("AMQ", "Executive A");
-            }
-            else if (appliance.StartsWith("SKW") == true)
-            {
-                returnString = appliance.Replace("SKW", "Executive B");
-            }
-            else if (appliance.StartsWith("RIC") == true)
-            {
-                returnString = appliance.Replace("RIC", "Executive C");
-            }
-            else if (appliance.StartsWith("PLS") == true)
-            {
-                returnString = appliance.Replace("PLS", "Executive D");
-            }
-            #endregion
-            #region 3 Character Prefixes
-            else if (appliance.StartsWith("FGD") == true)
-            {
-                returnString = appliance.Replace("FGD", "Fireground Channel ");
-            }
-            else if (appliance.StartsWith("AOC") == true)
-            {
-                returnString = appliance.Replace("AOC", "Acting Operations Commander ");
-            }
-            else if (appliance.StartsWith("FIU") == true)
-            {
-                returnString = appliance.Replace("FIU", "Fire Investigation Unit ");
-            }
-            else if (appliance.StartsWith("SCI") == true)
-            {
-                returnString = appliance.Replace("SCI", "Scientific Officer ");
-            }
-            else if (appliance.StartsWith("RAC") == true)
-            {
-                returnString = appliance.Replace("RAC", "Acting Commander ");
-            }
-            #endregion
-            #region 2 Character Prefixes
-            else if (appliance.StartsWith("BA") == true)
-            {
-                returnString = appliance.Replace("BA", "BA Bus ");
-            }
-            else if (appliance.StartsWith("BS") == true)
-            {
-                returnString = appliance.Replace("BS", "BA Support ");
-            }
-            else if (appliance.StartsWith("CU") == true)
-            {
-                returnString = appliance.Replace("CU", "Control Unit ");
-            }
-            else if (appliance.StartsWith("DU") == true)
-            {
-                returnString = appliance.Replace("DU", "Decontamination Unit ");
-            }
-            else if (appliance.StartsWith("LP") == true)
-            {
-                returnString = appliance.Replace("LP", "Ladder Platform ");
-            }
-            else if (appliance.StartsWith("PT") == true)
-            {
-                returnString = appliance.Replace("PT", "Pumper Tanker ");
-            }
-            else if (appliance.StartsWith("TB") == true)
-            {
-                returnString = appliance.Replace("TB", "Teleboom ");
-            }
-            else if (appliance.StartsWith("UP") == true)
-            {
-                returnString = appliance.Replace("UP", "Ultra Large Pump ");
-            }
-            else if (appliance.StartsWith("WT") == true)
-            {
-                returnString = appliance.Replace("WT", "Water Tanker ");
-            }
-            else if (appliance.StartsWith("ZC") == true)
-            {
-                returnString = appliance.Replace("ZC", "Zone Car ");
-            }
-            #endregion
-            #region 1 Character Prefixes
-            else if (appliance.StartsWith("P") == true)
-            {
-                returnString = appliance.Replace("P", "Pumper ");
-            }
-            else if (appliance.StartsWith("R") == true)
-            {
-                returnString = appliance.Replace("R", "Rescue ");
-            }
-            else if (appliance.StartsWith("T") == true)
-            {
-                returnString = appliance.Replace("T", "Modular Transporter ");
-            }
-            #endregion
-
-            //Did we get any hits
-            if (returnString == "")
-            {
-                //Nope, this is an unknown appliance.
-                returnString = "Unknown Appliance(" + appliance + ")";
-            }
-            //Finally check for Suffix
-            returnString = returnString.Replace("-FS", " FROM STATION ");
-
-            return returnString;
-        }
-
         private bool CheckForJustSafeCheck()
         {
-            if (lblStatus.Text != "STATUS" && lblStatus.Text != "SAFE")
+            if (lblStatus.Text != "STATUS" && lblStatus.Text != "SAFE" )
             {
                 //Wasn't Safe before update, Is the incident now safe?
-                if (mIncidentItem.Status == MFBIncidentItem.MFBStatus.Stop)
+                if (mIncidentItem.Status == ACTFBIncidentItem.ACTFBStatus.Stop)
                 {
                     //Just became Safe
                     //Do we want to auto close?
@@ -387,39 +149,63 @@ namespace MFBIncidentSource
         private void UpdateIncidentType()
         {
             //Set the tooptip
-            ttDisplay.SetToolTip(lblType, "Type: " +MFBIncidentItem.IncidentTypeToString(mIncidentItem.Type));
+            ttDisplay.SetToolTip(lblType, "Type: " +ACTFBIncidentItem.IncidentTypeToString(mIncidentItem.Type));
             switch (mIncidentItem.Type)
             {
-                case MFBIncidentItem.MFBTypes.FalseAlarm:
-                    lblType.Text = "FALS";
+                case ACTFBIncidentItem.ACTFBTypes.CarFire:
+                    lblType.Text = "CARF";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.Fire:
-                    lblType.Text = "FIRE";
+                case ACTFBIncidentItem.ACTFBTypes.MVA:
+                    lblType.Text = "MVA";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.FullCall:
-                    lblType.Text = "ALRM";
+                case ACTFBIncidentItem.ACTFBTypes.RubbishFire:
+                    lblType.Text = "RUBF";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.HazardousIncident:
+                case ACTFBIncidentItem.ACTFBTypes.StructureFire13:
+                    lblType.Text = "LSTR";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.GasPiplineNoInj:
+                    lblType.Text = "GSLK";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.PowerlinesDown:
+                    lblType.Text = "PLDN";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.GrassAndBush:
+                    lblType.Text = "G&B";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.HouseFireInj:
+                    lblType.Text = "HFWI";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.HouseFireNoInj:
+                    lblType.Text = "HFNI";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.HazmatNoCBR:
                     lblType.Text = "HZMT";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.Incident:
-                    lblType.Text = "INCI";
+                case ACTFBIncidentItem.ACTFBTypes.StructureBelowGround:
+                    lblType.Text = "SFBG";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.MedicalEmergency:
-                    lblType.Text = "EMR";
+                case ACTFBIncidentItem.ACTFBTypes.TransportFireBusTruck:
+                    lblType.Text = "TFBT";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.NonStructureFire:
-                    lblType.Text = "NOST";
+                case ACTFBIncidentItem.ACTFBTypes.StructuralCollapseMinor:
+                    lblType.Text = "SCMI";
                     lblType.ForeColor = Color.White;
                     break;
-                case MFBIncidentItem.MFBTypes.StructureFire:
-                    lblType.Text = "STRU";
+                case ACTFBIncidentItem.ACTFBTypes.LPGCylinderNoInj:
+                    lblType.Text = "LFNI";
                     lblType.ForeColor = Color.White;
                     break;
                 default:
@@ -432,32 +218,32 @@ namespace MFBIncidentSource
         private void UpdateIncidentStatus()
         {
             //Set the tooptip
-            ttDisplay.SetToolTip(lblStatus, "Status: "+MFBIncidentItem.IncidentStatusToString(mIncidentItem.Status));
+            ttDisplay.SetToolTip(lblStatus, "Status: "+ACTFBIncidentItem.IncidentStatusToString(mIncidentItem.Status));
 
             switch (mIncidentItem.Status)
             {
-                case MFBIncidentItem.MFBStatus.AlarmEscalated:
-                    lblStatus.Text = "ALMES";
-                    lblStatus.ForeColor = Color.Red;
-                    break;
-                case MFBIncidentItem.MFBStatus.Initiated:
-                    lblStatus.Text = "INIT";
-                    lblStatus.ForeColor = Color.Red;
-                    break;
-                case MFBIncidentItem.MFBStatus.Investigating:
-                    lblStatus.Text = "INVES";
-                    lblStatus.ForeColor = Color.Orange;
-                    break;
-                case MFBIncidentItem.MFBStatus.NotYetUnderControl:
-                    lblStatus.Text = "GOING";
-                    lblStatus.ForeColor = Color.Red;
-                    break;
-                case MFBIncidentItem.MFBStatus.Stop:
+                case ACTFBIncidentItem.ACTFBStatus.Stop:
                     lblStatus.Text = "SAFE";
                     lblStatus.ForeColor = Color.LimeGreen;
                     break;
-                case MFBIncidentItem.MFBStatus.UnderControl:
-                    lblStatus.Text = "CNTRL";
+                case ACTFBIncidentItem.ACTFBStatus.OnRoute:
+                    lblStatus.Text = "ONWAY";
+                    lblStatus.ForeColor = Color.Red;
+                    break;
+                case ACTFBIncidentItem.ACTFBStatus.OnScene:
+                    lblStatus.Text = "GOING";
+                    lblStatus.ForeColor = Color.Red;
+                    break;
+                case ACTFBIncidentItem.ACTFBStatus.ResourcesPending:
+                    lblStatus.Text = "INIT";
+                    lblStatus.ForeColor = Color.Orange;
+                    break;
+                case ACTFBIncidentItem.ACTFBStatus.Finished:
+                    lblStatus.Text = "FNSH";
+                    lblStatus.ForeColor = Color.LimeGreen;
+                    break;
+                case ACTFBIncidentItem.ACTFBStatus.UnderControl:
+                    lblStatus.Text = "UCTL";
                     lblStatus.ForeColor = Color.Orange;
                     break;
                 default:
@@ -624,14 +410,14 @@ namespace MFBIncidentSource
             }     
         }
 
-        private void MFBWatchNotification_MouseEnter(object sender, EventArgs e)
+        private void ACTFBWatchNotification_MouseEnter(object sender, EventArgs e)
         {
             tmrFadeout.Stop();
             //Set opacity to 100%
             this.Opacity = 1;
         }
 
-        private void MFBWatchNotification_MouseLeave(object sender, EventArgs e)
+        private void ACTFBWatchNotification_MouseLeave(object sender, EventArgs e)
         {
             if (mfFadeOut == true)
             {
