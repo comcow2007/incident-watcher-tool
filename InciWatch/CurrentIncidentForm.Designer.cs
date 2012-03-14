@@ -194,31 +194,31 @@ namespace InciWatch
             this.rightClickMenu.Name = "rightClickMenu";
             this.rightClickMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.rightClickMenu.ShowImageMargin = false;
-            this.rightClickMenu.Size = new System.Drawing.Size(168, 76);
+            this.rightClickMenu.Size = new System.Drawing.Size(148, 76);
             // 
             // addWatchToolStripMenuItem
             // 
             this.addWatchToolStripMenuItem.Name = "addWatchToolStripMenuItem";
-            this.addWatchToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.addWatchToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addWatchToolStripMenuItem.Text = "Add Watch";
             this.addWatchToolStripMenuItem.Click += new System.EventHandler(this.addWatchToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 6);
             // 
             // listenToStreamToolStripMenuItem
             // 
             this.listenToStreamToolStripMenuItem.Name = "listenToStreamToolStripMenuItem";
-            this.listenToStreamToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.listenToStreamToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.listenToStreamToolStripMenuItem.Text = "Listen to Stream";
             this.listenToStreamToolStripMenuItem.Click += new System.EventHandler(this.listenToStreamToolStripMenuItem_Click);
             // 
             // locateInGoogleMapsToolStripMenuItem
             // 
             this.locateInGoogleMapsToolStripMenuItem.Name = "locateInGoogleMapsToolStripMenuItem";
-            this.locateInGoogleMapsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.locateInGoogleMapsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.locateInGoogleMapsToolStripMenuItem.Text = "Locate in Google Maps";
             this.locateInGoogleMapsToolStripMenuItem.Click += new System.EventHandler(this.locateInGoogleMapsToolStripMenuItem_Click);
             // 
@@ -241,24 +241,24 @@ namespace InciWatch
             this.notifyContextMenu.Name = "notifyContextMenu";
             this.notifyContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.notifyContextMenu.ShowImageMargin = false;
-            this.notifyContextMenu.Size = new System.Drawing.Size(170, 54);
+            this.notifyContextMenu.Size = new System.Drawing.Size(144, 54);
             // 
             // viewCurrentIncidentsToolStripMenuItem
             // 
             this.viewCurrentIncidentsToolStripMenuItem.Name = "viewCurrentIncidentsToolStripMenuItem";
-            this.viewCurrentIncidentsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.viewCurrentIncidentsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.viewCurrentIncidentsToolStripMenuItem.Text = "View Current Incidents";
             this.viewCurrentIncidentsToolStripMenuItem.Click += new System.EventHandler(this.viewCurrentIncidentsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(166, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(140, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFB Incident Source")]
-[assembly: AssemblyDescription("Put this file in your Incident Watch Folder and it will retrieve incidents from the MFB Public data.")]
+[assembly: AssemblyTitle("ACTFB Incident Source")]
+[assembly: AssemblyDescription("Put this file in your Incident Watch Folder and it will retrieve incidents from the ACTFB Public data.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Originally coded by www.fattyman.net")]
-[assembly: AssemblyProduct("Metropolitan Fire Brigade Incident Source")]
-[assembly: AssemblyCopyright("Copyright © Fattyman 2010")]
+[assembly: AssemblyProduct("Australian Capital Territory Fire Brigade Incident Source")]
+[assembly: AssemblyCopyright("Copyright © Fattyman 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

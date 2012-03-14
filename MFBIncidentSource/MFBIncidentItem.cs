@@ -104,7 +104,7 @@ namespace MFBIncidentSource
             Longitude = xmlNode.Attributes.GetNamedItem("lng").Value;
 
             //Get the appliance string
-            ApplicanceString = xmlNode.Attributes.GetNamedItem("appliences").Value;
+            ApplicanceString = xmlNode.Attributes.GetNamedItem("appliances").Value;
 
             //Get the suburb + Location
             string addressString = xmlNode.Attributes.GetNamedItem("address").Value;
@@ -489,6 +489,7 @@ namespace MFBIncidentSource
             }
             set
             {
+                int fireGroundChannels = 0;
                 //Process the appliance string
                 if (value.StartsWith("[") == true && value.EndsWith("]") == true)
                 {
@@ -501,12 +502,19 @@ namespace MFBIncidentSource
                     string[] appliances = processString.Split(',');
                     foreach (string appliance in appliances)
                     {
-                        if( String.IsNullOrEmpty(appliance)== false)
+                        if (String.IsNullOrEmpty(appliance) == false)
+                        {
+                            if (appliance.Trim().StartsWith("FGD") == true)
+                            {
+                                fireGroundChannels++;
+                            }
                             mAppliances.Add(appliance.Trim());
+                        }
                     }
 
                     //Update the Appliance count Generic
-                    ApplianceCount_GENERIC = mAppliances.Count;
+                    ApplianceCount_GENERIC = mAppliances.Count - fireGroundChannels;
+
                 }
             }
         }
