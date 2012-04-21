@@ -208,6 +208,10 @@ namespace ACTFBIncidentSource
                     lblType.Text = "LFNI";
                     lblType.ForeColor = Color.White;
                     break;
+                case ACTFBIncidentItem.ACTFBTypes.LPGCylinderInj:
+                    lblType.Text = "LFWI";
+                    lblType.ForeColor = Color.White;
+                    break;
                 default:
                     lblType.Text = "UNKN";
                     lblType.ForeColor = Color.White;

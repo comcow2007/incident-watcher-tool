@@ -20,6 +20,7 @@ using System.Text;
 using InciWatch;
 using System.Xml;
 using System.IO;
+using System.Globalization;
 
 namespace ACTFBIncidentSource
 {
@@ -43,7 +44,8 @@ namespace ACTFBIncidentSource
             StructureBelowGround,
             TransportFireBusTruck,
             StructuralCollapseMinor,
-            LPGCylinderNoInj
+            LPGCylinderNoInj,
+            LPGCylinderInj
         }
 
         public enum ACTFBStatus
@@ -148,7 +150,7 @@ namespace ACTFBIncidentSource
 
             //Get the Last update
             string lastUpdate = detailFields[7].Substring(detailFields[7].IndexOf(':') + 2);
-            LastUpdate = DateTime.Parse(lastUpdate);
+            LastUpdate = DateTime.ParseExact(lastUpdate,"yyyyMMddHHmmss",CultureInfo.InvariantCulture);
 
             //Get the location ( if we can )
             string[] latlong = xmlNode.LastChild.InnerText.Split(' ');
@@ -307,6 +309,9 @@ namespace ACTFBIncidentSource
                 case ACTFBTypes.LPGCylinderNoInj:
                     returnString = "LPG Cylinder Fire (No Injuries)";
                     break;
+                case  ACTFBTypes.LPGCylinderInj:
+                    returnString = "LPG Cylinder Fire (Reported Injuries)";
+                    break;
                 default:
                     returnString = "Unknown";
                     break;
@@ -373,6 +378,10 @@ namespace ACTFBIncidentSource
                 case "LPG CYLINDER FIRE (NO INJURIES)":
                 case "LPG CYLINDER (NO INJURIES)":
                     returnType = ACTFBTypes.LPGCylinderNoInj;
+                    break;
+                case "LPG CYLINDER FIRE (REPORTED INJURIES)":
+                case "LPG CYLINDER (REPORTED INJURIES)":
+                    returnType = ACTFBTypes.LPGCylinderInj;
                     break;
                 default:
                     returnType = ACTFBTypes.Unknown;

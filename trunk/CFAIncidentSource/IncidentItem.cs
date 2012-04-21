@@ -303,7 +303,7 @@ namespace CFAIncidentSource
                 return IncidentType.Rescue;
             if (tempString == "INCIDENT")
                 return IncidentType.Incident;
-            if (tempString == "HAZMAT INCIDENT")
+            if (tempString == "HAZMAT")
                 return IncidentType.Hazmat;
             if (tempString == "WILD FIRE")
                 return IncidentType.Wildfire;
@@ -334,7 +334,7 @@ namespace CFAIncidentSource
             if (type == IncidentType.Incident)
                 return "INCIDENT";
             if (type == IncidentType.Hazmat)
-                return "HAZMAT INCIDENT";
+                return "HAZMAT";
             if (type == IncidentType.Wildfire)
                 return "WILD FIRE";
             if (type == IncidentType.Scrub)
