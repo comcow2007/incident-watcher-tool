@@ -66,9 +66,6 @@ namespace ACTFBIncidentSource
         private bool UpdateIncidentList()
         {
             bool fNewIncident = false;
-            try
-            {
-            
                 //Create a request for the xml file
                 HttpWebRequest webRequest = (HttpWebRequest)HttpWebRequest.Create(mParentSource.GetOptions().IncidentSourceURL);
 
@@ -80,9 +77,14 @@ namespace ACTFBIncidentSource
                 //Get the response as an xml file
                 HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
 
+                if (webResponse.ContentLength == 0)
+                    return false;
+
                 //Get the xml document
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(webResponse.GetResponseStream());
+
+                
 
                 //Get the first node "<rss><channel>"
                 XmlNode markerNode = xmlDoc.SelectSingleNode("rss").ChildNodes[0];
@@ -155,11 +157,6 @@ namespace ACTFBIncidentSource
 
                 mFirstUpdate = false;
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
 
         }
 
