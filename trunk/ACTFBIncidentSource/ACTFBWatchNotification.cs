@@ -168,6 +168,10 @@ namespace ACTFBIncidentSource
                     lblType.Text = "LSTR";
                     lblType.ForeColor = Color.White;
                     break;
+                case ACTFBIncidentItem.ACTFBTypes.StructureFire47:
+                    lblType.Text = "MSTR";
+                    lblType.ForeColor = Color.White;
+                    break;
                 case ACTFBIncidentItem.ACTFBTypes.GasPiplineNoInj:
                     lblType.Text = "GSLK";
                     lblType.ForeColor = Color.White;

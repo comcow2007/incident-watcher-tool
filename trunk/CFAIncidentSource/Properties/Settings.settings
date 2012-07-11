@@ -24,7 +24,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="GathererSourceURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://osom.dse.vic.gov.au/public/osom/IN_COMING.rss</Value>
+      <Value Profile="(Default)">http://osom.cfa.vic.gov.au/public/osom/IN_COMING.rss</Value>
     </Setting>
     <Setting Name="ActionDiamond" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

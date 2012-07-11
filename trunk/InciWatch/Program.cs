@@ -31,9 +31,12 @@ namespace InciWatch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+#if !DEBUG
             try
             {
+#endif
                 Application.Run(new CurrentIncidentsForm());
+#if !DEBUG
             }
             catch (ArgumentException e)
             {
@@ -52,6 +55,7 @@ namespace InciWatch
                     WriteFailFile(e);
                 }
             }
+#endif
         }
 
         static void WriteFailFile(Exception e)
