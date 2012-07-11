@@ -35,6 +35,7 @@ namespace ACTFBIncidentSource
             RubbishFire,
             MVA,
             StructureFire13,
+            StructureFire47,
             GasPiplineNoInj,
             PowerlinesDown,
             GrassAndBush,
@@ -150,8 +151,15 @@ namespace ACTFBIncidentSource
 
             //Get the Last update
             string lastUpdate = detailFields[7].Substring(detailFields[7].IndexOf(':') + 2);
-            LastUpdate = DateTime.ParseExact(lastUpdate,"yyyyMMddHHmmss",CultureInfo.InvariantCulture);
-
+            //Try DateTime.ParseExact, if it fails try parse
+            try
+            {
+                LastUpdate = DateTime.ParseExact(lastUpdate, "yyyyMMddHHmmss", CultureInfo.InvariantCulture);
+            }
+            catch (FormatException)
+            {
+                    LastUpdate = DateTime.Parse(lastUpdate);
+            }
             //Get the location ( if we can )
             string[] latlong = xmlNode.LastChild.InnerText.Split(' ');
             float lat, lon;
@@ -279,6 +287,9 @@ namespace ACTFBIncidentSource
                 case ACTFBTypes.StructureFire13:
                     returnString = "Structure Fire (1 to 3 Floors)";
                     break;
+                case ACTFBTypes.StructureFire47:
+                    returnString = "Structure Fire (4 to 7 Floors)";
+                    break;
                 case ACTFBTypes.GasPiplineNoInj:
                     returnString = "Gas Leak (No Reported Injuries)";
                     break;
@@ -340,6 +351,10 @@ namespace ACTFBIncidentSource
                 case "STRUCTURE FIRE (1 TO 3 FLOORS)":
                 case "STRUCTURE FIRE 1 TO 3 FLOORS":
                     returnType = ACTFBTypes.StructureFire13;
+                    break;
+                case "STRUCTURE FIRE (4 TO 7 FLOORS)":
+                case "STRUCTURE FIRE 4 TO 7 FLOORS":
+                    returnType = ACTFBTypes.StructureFire47;
                     break;
                 case "GAS LEAK (NO REPORTED INJURIES)":
                 case "GAS PIPELINE (NO INJURIES)":

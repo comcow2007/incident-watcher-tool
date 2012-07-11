@@ -95,7 +95,12 @@ namespace CFAIncidentSource
                 
                 //---------- Determine Controlling Agency ----------
                 string newControllingAgency = "CFA";
-                if (tempArray[0].Contains("DISTRICT "))
+                if (tempArray[0] == "MFB")
+                {
+                    //MFB, Discard because we have the MFB incident source
+                    continue;
+                }
+                else if (tempArray[0].StartsWith("DISTRICT "))
                 {
                     //CFA Job
                     newControllingAgency = "CFA";
