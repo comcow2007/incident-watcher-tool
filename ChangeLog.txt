@@ -2,10 +2,11 @@ TODO:
     -Add the ability to move/detach watch windows.
     -Add the ability to custom name jobs
     -Add the ability to define mfb units in xml rather than hardcoded
-
+v2.2.0.3 11/07/2012
+    * Added a few more ACTFB job types
 v2.2.0.2 11/07/2012
     * Modified OSOM rss feed
-	* MFB incidents were added to OSOM feed, these are now discarded as the MFB incident source handles these.	
+    * MFB incidents were added to OSOM feed, these are now discarded as the MFB incident source handles these.	
 v2.2.0.1 21/04/2012
     * Updated data parsing of ACTFB Incident Plugin
     * Fixed issue for OSOM Plugin with Hazmat jobs

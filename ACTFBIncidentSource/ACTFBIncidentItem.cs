@@ -36,6 +36,7 @@ namespace ACTFBIncidentSource
             MVA,
             StructureFire13,
             StructureFire47,
+            StructureFire8plus,
             GasPiplineNoInj,
             PowerlinesDown,
             GrassAndBush,
@@ -45,6 +46,8 @@ namespace ACTFBIncidentSource
             StructureBelowGround,
             TransportFireBusTruck,
             StructuralCollapseMinor,
+            StructuralCollapseMajor,
+            HospitalsAndInstitutionsFire,
             LPGCylinderNoInj,
             LPGCylinderInj
         }
@@ -290,6 +293,12 @@ namespace ACTFBIncidentSource
                 case ACTFBTypes.StructureFire47:
                     returnString = "Structure Fire (4 to 7 Floors)";
                     break;
+                case ACTFBTypes.StructureFire8plus:
+                    returnString = "Structure Fire (8+ Floors)";
+                    break;
+                case ACTFBTypes.HospitalsAndInstitutionsFire:
+                    returnString = "Hospital/Institutional Fire";
+                    break;
                 case ACTFBTypes.GasPiplineNoInj:
                     returnString = "Gas Leak (No Reported Injuries)";
                     break;
@@ -316,6 +325,9 @@ namespace ACTFBIncidentSource
                     break;
                 case ACTFBTypes.StructuralCollapseMinor:
                     returnString = "Structural Collapse (Minor)";
+                    break;
+                case ACTFBTypes.StructuralCollapseMajor:
+                    returnString = "Structural Collapse (Major)";
                     break;
                 case ACTFBTypes.LPGCylinderNoInj:
                     returnString = "LPG Cylinder Fire (No Injuries)";
@@ -356,6 +368,10 @@ namespace ACTFBIncidentSource
                 case "STRUCTURE FIRE 4 TO 7 FLOORS":
                     returnType = ACTFBTypes.StructureFire47;
                     break;
+                case "STRUCTURE FIRE (8+ FLOORS)":
+                case "STRUCTURE FIRE 8 OR MORE FLOORS":
+                    returnType = ACTFBTypes.StructureFire8plus;
+                    break;
                 case "GAS LEAK (NO REPORTED INJURIES)":
                 case "GAS PIPELINE (NO INJURIES)":
                     returnType = ACTFBTypes.GasPiplineNoInj;
@@ -390,6 +406,10 @@ namespace ACTFBIncidentSource
                 case "STRUCTURAL COLLAPSE - MINOR":
                     returnType = ACTFBTypes.StructuralCollapseMinor;
                     break;
+                case "STRUCTURAL COLLAPSE (MAJOR)":
+                case "STRUCTURAL COLLAPSE - MAJOR":
+                    returnType = ACTFBTypes.StructuralCollapseMajor;
+                    break;
                 case "LPG CYLINDER FIRE (NO INJURIES)":
                 case "LPG CYLINDER (NO INJURIES)":
                     returnType = ACTFBTypes.LPGCylinderNoInj;
@@ -397,6 +417,10 @@ namespace ACTFBIncidentSource
                 case "LPG CYLINDER FIRE (REPORTED INJURIES)":
                 case "LPG CYLINDER (REPORTED INJURIES)":
                     returnType = ACTFBTypes.LPGCylinderInj;
+                    break;
+                case "HOSPITAL/INSTITUTIONAL FIRE":
+                case "HOSPITALS AND INSTITUTIONS FIRE":
+                    returnType = ACTFBTypes.HospitalsAndInstitutionsFire;
                     break;
                 default:
                     returnType = ACTFBTypes.Unknown;

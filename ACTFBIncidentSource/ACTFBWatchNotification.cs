@@ -172,6 +172,10 @@ namespace ACTFBIncidentSource
                     lblType.Text = "MSTR";
                     lblType.ForeColor = Color.White;
                     break;
+                case ACTFBIncidentItem.ACTFBTypes.StructureFire8plus:
+                    lblType.Text = "HSTR";
+                    lblType.ForeColor = Color.White;
+                    break;
                 case ACTFBIncidentItem.ACTFBTypes.GasPiplineNoInj:
                     lblType.Text = "GSLK";
                     lblType.ForeColor = Color.White;
@@ -208,12 +212,20 @@ namespace ACTFBIncidentSource
                     lblType.Text = "SCMI";
                     lblType.ForeColor = Color.White;
                     break;
+                case ACTFBIncidentItem.ACTFBTypes.StructuralCollapseMajor:
+                    lblType.Text = "SCMA";
+                    lblType.ForeColor = Color.White;
+                    break;
                 case ACTFBIncidentItem.ACTFBTypes.LPGCylinderNoInj:
                     lblType.Text = "LFNI";
                     lblType.ForeColor = Color.White;
                     break;
                 case ACTFBIncidentItem.ACTFBTypes.LPGCylinderInj:
                     lblType.Text = "LFWI";
+                    lblType.ForeColor = Color.White;
+                    break;
+                case ACTFBIncidentItem.ACTFBTypes.HospitalsAndInstitutionsFire:
+                    lblType.Text = "H/IF";
                     lblType.ForeColor = Color.White;
                     break;
                 default:
