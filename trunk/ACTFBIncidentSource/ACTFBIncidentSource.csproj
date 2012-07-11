@@ -129,4 +129,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(TargetDir)Deploy\</PostBuildEvent>
+  </PropertyGroup>
 </Project>
