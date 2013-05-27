@@ -49,15 +49,15 @@ namespace InciWatch
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOptions = new System.Windows.Forms.Button();
             this.incidentListView = new System.Windows.Forms.ListView();
-            this.lvhdSuburb = new System.Windows.Forms.ColumnHeader();
-            this.lvhdAddress = new System.Windows.Forms.ColumnHeader();
-            this.lvhdType = new System.Windows.Forms.ColumnHeader();
-            this.lvhdStatus = new System.Windows.Forms.ColumnHeader();
-            this.lvhdRegion = new System.Windows.Forms.ColumnHeader();
-            this.lvhdWordbackTime = new System.Windows.Forms.ColumnHeader();
-            this.lvhdAppliances = new System.Windows.Forms.ColumnHeader(0);
-            this.lvhdSize = new System.Windows.Forms.ColumnHeader();
-            this.lvhdWatch = new System.Windows.Forms.ColumnHeader(1);
+            this.lvhdSuburb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdRegion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdWordbackTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdAppliances = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvhdWatch = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ilImageList = new System.Windows.Forms.ImageList(this.components);
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.rightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -78,7 +78,7 @@ namespace InciWatch
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(515, 423);
+            this.btnClose.Location = new System.Drawing.Point(711, 423);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 1;
@@ -89,7 +89,7 @@ namespace InciWatch
             // btnOptions
             // 
             this.btnOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOptions.Location = new System.Drawing.Point(439, 423);
+            this.btnOptions.Location = new System.Drawing.Point(635, 423);
             this.btnOptions.Name = "btnOptions";
             this.btnOptions.Size = new System.Drawing.Size(75, 23);
             this.btnOptions.TabIndex = 2;
@@ -119,13 +119,13 @@ namespace InciWatch
             this.incidentListView.MultiSelect = false;
             this.incidentListView.Name = "incidentListView";
             this.incidentListView.ShowGroups = false;
-            this.incidentListView.Size = new System.Drawing.Size(592, 417);
+            this.incidentListView.Size = new System.Drawing.Size(788, 417);
             this.incidentListView.SmallImageList = this.ilImageList;
             this.incidentListView.TabIndex = 3;
             this.incidentListView.UseCompatibleStateImageBehavior = false;
             this.incidentListView.View = System.Windows.Forms.View.Details;
-            this.incidentListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.incidentListView_MouseClick);
             this.incidentListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.incidentListView_ColumnClick);
+            this.incidentListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.incidentListView_MouseClick);
             // 
             // lvhdSuburb
             // 
@@ -194,31 +194,31 @@ namespace InciWatch
             this.rightClickMenu.Name = "rightClickMenu";
             this.rightClickMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.rightClickMenu.ShowImageMargin = false;
-            this.rightClickMenu.Size = new System.Drawing.Size(148, 76);
+            this.rightClickMenu.Size = new System.Drawing.Size(171, 76);
             // 
             // addWatchToolStripMenuItem
             // 
             this.addWatchToolStripMenuItem.Name = "addWatchToolStripMenuItem";
-            this.addWatchToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.addWatchToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.addWatchToolStripMenuItem.Text = "Add Watch";
             this.addWatchToolStripMenuItem.Click += new System.EventHandler(this.addWatchToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(167, 6);
             // 
             // listenToStreamToolStripMenuItem
             // 
             this.listenToStreamToolStripMenuItem.Name = "listenToStreamToolStripMenuItem";
-            this.listenToStreamToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.listenToStreamToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.listenToStreamToolStripMenuItem.Text = "Listen to Stream";
             this.listenToStreamToolStripMenuItem.Click += new System.EventHandler(this.listenToStreamToolStripMenuItem_Click);
             // 
             // locateInGoogleMapsToolStripMenuItem
             // 
             this.locateInGoogleMapsToolStripMenuItem.Name = "locateInGoogleMapsToolStripMenuItem";
-            this.locateInGoogleMapsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.locateInGoogleMapsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.locateInGoogleMapsToolStripMenuItem.Text = "Locate in Google Maps";
             this.locateInGoogleMapsToolStripMenuItem.Click += new System.EventHandler(this.locateInGoogleMapsToolStripMenuItem_Click);
             // 
@@ -241,24 +241,24 @@ namespace InciWatch
             this.notifyContextMenu.Name = "notifyContextMenu";
             this.notifyContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.notifyContextMenu.ShowImageMargin = false;
-            this.notifyContextMenu.Size = new System.Drawing.Size(144, 54);
+            this.notifyContextMenu.Size = new System.Drawing.Size(169, 54);
             // 
             // viewCurrentIncidentsToolStripMenuItem
             // 
             this.viewCurrentIncidentsToolStripMenuItem.Name = "viewCurrentIncidentsToolStripMenuItem";
-            this.viewCurrentIncidentsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.viewCurrentIncidentsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.viewCurrentIncidentsToolStripMenuItem.Text = "View Current Incidents";
             this.viewCurrentIncidentsToolStripMenuItem.Click += new System.EventHandler(this.viewCurrentIncidentsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(140, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(165, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -277,7 +277,7 @@ namespace InciWatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 448);
+            this.ClientSize = new System.Drawing.Size(788, 448);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnOptions);
             this.Controls.Add(this.incidentListView);
@@ -285,9 +285,9 @@ namespace InciWatch
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CurrentIncidentsForm";
             this.Text = "Current Incidents";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CurrentIncidentsForm_FormClosing);
             this.Load += new System.EventHandler(this.CurrentIncidentsForm_Load);
             this.SizeChanged += new System.EventHandler(this.CurrentIncidentsForm_SizeChanged);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CurrentIncidentsForm_FormClosing);
             this.rightClickMenu.ResumeLayout(false);
             this.notifyContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);

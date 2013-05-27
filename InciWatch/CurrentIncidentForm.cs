@@ -249,7 +249,10 @@ namespace InciWatch
 
                     //Set the values
                     newLvi.Text = inci.Value.Suburb_GENERIC;
-
+                    if (mProgramOptions.DisplayUppercase)
+                    {
+                        inci.Value.Location_GENERIC = inci.Value.Location_GENERIC.ToUpper();
+                    }
                     newLvi.SubItems.Add(new ListViewItem.ListViewSubItem(newLvi, inci.Value.Location_GENERIC));
                     newLvi.SubItems.Add(new ListViewItem.ListViewSubItem(newLvi, inci.Value.Type_GENERIC));
                     newLvi.SubItems.Add(new ListViewItem.ListViewSubItem(newLvi, inci.Value.Status_GENERIC));
@@ -279,6 +282,11 @@ namespace InciWatch
                 }
                 //Cant forget to resumt
                 incidentListView.ResumeLayout();
+                if (mProgramOptions.AutoSizeColumns)
+                {
+                    lvhdAddress.Width = -1;
+                    lvhdSuburb.Width = -1;
+                }
             }
 
             //Update the watch windows
@@ -341,7 +349,6 @@ namespace InciWatch
             ntfyCurrentIncidents.Text = "Incident Watcher - Updated " + DateTime.Now.ToLongTimeString();
             this.Text = "Current Incidents - Updated " + DateTime.Now.ToLongTimeString();
 
-
             //Check for Tooltip stuff
             if (toolTipText != "")
                 //Show the tooltip
@@ -353,6 +360,7 @@ namespace InciWatch
             refreshTimer.Interval = mProgramOptions.GathererRefreshInterval * 1000;
             refreshTimer.Stop();
             refreshTimer.Start();
+
         }
         private void incidentListView_MouseClick(object sender, MouseEventArgs e)
         {

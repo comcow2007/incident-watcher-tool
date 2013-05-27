@@ -123,5 +123,10 @@ namespace InciWatch
         {
             System.Diagnostics.Process.Start("https://code.google.com/p/incident-watcher-tool/");
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -120,7 +120,20 @@ namespace InciWatch
             set { m_programSettings.ProxyPassword = value; }
         }
         #endregion
+        #region Display Settings
+        public bool DisplayUppercase
+        {
+            get { return m_programSettings.UseUppercase; }
+            set { m_programSettings.UseUppercase = value; }
+        }
 
+        public bool AutoSizeColumns
+        {
+            get { return m_programSettings.AutoSizeColumns; }
+            set { m_programSettings.AutoSizeColumns = value; }
+        }
+
+        #endregion
         public void Save()
         {
             m_programSettings.Save();

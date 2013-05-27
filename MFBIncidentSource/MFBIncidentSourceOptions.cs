@@ -38,6 +38,12 @@ namespace MFBIncidentSource
             set { mSourceSettings.StreamURL = value; }
         }
 
+        public bool CrossStreets
+        {
+            get { return mSourceSettings.ShowCrossStreets; }
+            set { mSourceSettings.ShowCrossStreets = value; }
+        }
+
         public string ActionDiamond
         {
             get { return mSourceSettings.ActionDiamond; }

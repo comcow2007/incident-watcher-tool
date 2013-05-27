@@ -50,6 +50,7 @@ namespace InciWatch
             this.btnClose = new System.Windows.Forms.Button();
             this.lblFattymanSite = new System.Windows.Forms.LinkLabel();
             this.lblGoogleCode = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelProductName
@@ -79,7 +80,7 @@ namespace InciWatch
             // txtDetail
             // 
             this.txtDetail.CausesValidation = false;
-            this.txtDetail.Location = new System.Drawing.Point(12, 98);
+            this.txtDetail.Location = new System.Drawing.Point(12, 121);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ReadOnly = true;
@@ -91,7 +92,7 @@ namespace InciWatch
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(107, 365);
+            this.btnClose.Location = new System.Drawing.Point(118, 388);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 29;
@@ -122,11 +123,22 @@ namespace InciWatch
             this.lblGoogleCode.UseMnemonic = false;
             this.lblGoogleCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGoogleCode_LinkClicked);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 13);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Additional contributions from James Baird";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 400);
+            this.ClientSize = new System.Drawing.Size(298, 423);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblGoogleCode);
             this.Controls.Add(this.lblFattymanSite);
             this.Controls.Add(this.btnClose);
@@ -155,6 +167,7 @@ namespace InciWatch
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.LinkLabel lblFattymanSite;
         private System.Windows.Forms.LinkLabel lblGoogleCode;
+        private System.Windows.Forms.Label label1;
 
     }
 }

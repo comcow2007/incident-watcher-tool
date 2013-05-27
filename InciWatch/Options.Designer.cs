@@ -48,6 +48,9 @@ namespace InciWatch
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.tbctlOptions = new System.Windows.Forms.TabControl();
             this.tabGeneralSettings = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkAutoResize = new System.Windows.Forms.CheckBox();
+            this.checkUppercaseAddress = new System.Windows.Forms.CheckBox();
             this.grpOldJobCutoff = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtOldJobCutoffHours = new System.Windows.Forms.TextBox();
@@ -80,7 +83,6 @@ namespace InciWatch
             this.imgSmlLoadedSources = new System.Windows.Forms.ImageList(this.components);
             this.grpInformationSource = new System.Windows.Forms.GroupBox();
             this.chkShowCantUpdateMessage = new System.Windows.Forms.CheckBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtGathererRefreshInterval = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
@@ -90,6 +92,7 @@ namespace InciWatch
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tbctlOptions.SuspendLayout();
             this.tabGeneralSettings.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.grpOldJobCutoff.SuspendLayout();
             this.grpProxySettings.SuspendLayout();
             this.grpStreamAppSettings.SuspendLayout();
@@ -114,6 +117,7 @@ namespace InciWatch
             // 
             // tabGeneralSettings
             // 
+            this.tabGeneralSettings.Controls.Add(this.groupBox1);
             this.tabGeneralSettings.Controls.Add(this.grpOldJobCutoff);
             this.tabGeneralSettings.Controls.Add(this.chkUseProxy);
             this.tabGeneralSettings.Controls.Add(this.grpProxySettings);
@@ -126,6 +130,38 @@ namespace InciWatch
             this.tabGeneralSettings.TabIndex = 5;
             this.tabGeneralSettings.Text = "General Settings";
             this.tabGeneralSettings.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkAutoResize);
+            this.groupBox1.Controls.Add(this.checkUppercaseAddress);
+            this.groupBox1.Location = new System.Drawing.Point(9, 249);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(512, 46);
+            this.groupBox1.TabIndex = 39;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Display";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // checkAutoResize
+            // 
+            this.checkAutoResize.AutoSize = true;
+            this.checkAutoResize.Location = new System.Drawing.Point(144, 20);
+            this.checkAutoResize.Name = "checkAutoResize";
+            this.checkAutoResize.Size = new System.Drawing.Size(120, 17);
+            this.checkAutoResize.TabIndex = 1;
+            this.checkAutoResize.Text = "Auto resize columns";
+            this.checkAutoResize.UseVisualStyleBackColor = true;
+            // 
+            // checkUppercaseAddress
+            // 
+            this.checkUppercaseAddress.AutoSize = true;
+            this.checkUppercaseAddress.Location = new System.Drawing.Point(8, 20);
+            this.checkUppercaseAddress.Name = "checkUppercaseAddress";
+            this.checkUppercaseAddress.Size = new System.Drawing.Size(129, 17);
+            this.checkUppercaseAddress.TabIndex = 0;
+            this.checkUppercaseAddress.Text = "Uppercase addresses";
+            this.checkUppercaseAddress.UseVisualStyleBackColor = true;
             // 
             // grpOldJobCutoff
             // 
@@ -436,7 +472,6 @@ namespace InciWatch
             // grpInformationSource
             // 
             this.grpInformationSource.Controls.Add(this.chkShowCantUpdateMessage);
-            this.grpInformationSource.Controls.Add(this.label30);
             this.grpInformationSource.Controls.Add(this.label2);
             this.grpInformationSource.Controls.Add(this.txtGathererRefreshInterval);
             this.grpInformationSource.Location = new System.Drawing.Point(8, 6);
@@ -458,15 +493,6 @@ namespace InciWatch
             this.chkShowCantUpdateMessage.Text = "Show warning message if update fails?";
             this.chkShowCantUpdateMessage.UseVisualStyleBackColor = true;
             this.chkShowCantUpdateMessage.CheckedChanged += new System.EventHandler(this.chkCloseWatchOnSafe_CheckedChanged);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(229, 16);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(118, 13);
-            this.label30.TabIndex = 4;
-            this.label30.Text = "Minimum is 90 Seconds";
             // 
             // label2
             // 
@@ -560,6 +586,8 @@ namespace InciWatch
             this.tbctlOptions.ResumeLayout(false);
             this.tabGeneralSettings.ResumeLayout(false);
             this.tabGeneralSettings.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.grpOldJobCutoff.ResumeLayout(false);
             this.grpOldJobCutoff.PerformLayout();
             this.grpProxySettings.ResumeLayout(false);
@@ -598,7 +626,6 @@ namespace InciWatch
         private System.Windows.Forms.TabPage tabIncidentSources;
         private System.Windows.Forms.GroupBox grpInformationSource;
         private System.Windows.Forms.CheckBox chkShowCantUpdateMessage;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtGathererRefreshInterval;
         private System.Windows.Forms.GroupBox grpInformationSources;
@@ -621,5 +648,8 @@ namespace InciWatch
         private System.Windows.Forms.GroupBox grpOldJobCutoff;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtOldJobCutoffHours;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkUppercaseAddress;
+        private System.Windows.Forms.CheckBox checkAutoResize;
     }
 }

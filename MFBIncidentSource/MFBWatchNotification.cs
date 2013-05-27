@@ -22,6 +22,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using InciWatch;
+using System.Text.RegularExpressions;
 
 namespace MFBIncidentSource
 {
@@ -260,85 +261,142 @@ namespace MFBIncidentSource
                 returnString = appliance.Replace("PLS", "Executive D");
             }
             #endregion
-            #region 3 Character Prefixes
-            else if (appliance.StartsWith("FGD") == true)
+            String mfb_pattern = "(^[A-Z]{1,3})([0-9]+)([A-Z]*)";
+            String cfa_pattern = "([A-Z]{4})([A-Z]+)([0-9]+)";
+            if(Regex.IsMatch(appliance,mfb_pattern))
             {
-                returnString = appliance.Replace("FGD", "Fireground Channel ");
-            }
-            else if (appliance.StartsWith("AOC") == true)
-            {
-                returnString = appliance.Replace("AOC", "Acting Operations Commander ");
-            }
-            else if (appliance.StartsWith("FIU") == true)
-            {
-                returnString = appliance.Replace("FIU", "Fire Investigation Unit ");
-            }
-            else if (appliance.StartsWith("SCI") == true)
-            {
-                returnString = appliance.Replace("SCI", "Scientific Officer ");
-            }
-            else if (appliance.StartsWith("RAC") == true)
-            {
-                returnString = appliance.Replace("RAC", "Acting Commander ");
-            }
-            #endregion
-            #region 2 Character Prefixes
-            else if (appliance.StartsWith("BA") == true)
-            {
-                returnString = appliance.Replace("BA", "BA Bus ");
-            }
-            else if (appliance.StartsWith("BS") == true)
-            {
-                returnString = appliance.Replace("BS", "BA Support ");
-            }
-            else if (appliance.StartsWith("CU") == true)
-            {
-                returnString = appliance.Replace("CU", "Control Unit ");
-            }
-            else if (appliance.StartsWith("DU") == true)
-            {
-                returnString = appliance.Replace("DU", "Decontamination Unit ");
-            }
-            else if (appliance.StartsWith("LP") == true)
-            {
-                returnString = appliance.Replace("LP", "Ladder Platform ");
-            }
-            else if (appliance.StartsWith("PT") == true)
-            {
-                returnString = appliance.Replace("PT", "Pumper Tanker ");
-            }
-            else if (appliance.StartsWith("TB") == true)
-            {
-                returnString = appliance.Replace("TB", "Teleboom ");
-            }
-            else if (appliance.StartsWith("UP") == true)
-            {
-                returnString = appliance.Replace("UP", "Ultra Large Pump ");
-            }
-            else if (appliance.StartsWith("WT") == true)
-            {
-                returnString = appliance.Replace("WT", "Water Tanker ");
-            }
-            else if (appliance.StartsWith("ZC") == true)
-            {
-                returnString = appliance.Replace("ZC", "Zone Car ");
-            }
-            #endregion
-            #region 1 Character Prefixes
-            else if (appliance.StartsWith("P") == true)
-            {
-                returnString = appliance.Replace("P", "Pumper ");
-            }
-            else if (appliance.StartsWith("R") == true)
-            {
-                returnString = appliance.Replace("R", "Rescue ");
-            }
-            else if (appliance.StartsWith("T") == true)
-            {
-                returnString = appliance.Replace("T", "Modular Transporter ");
-            }
-            #endregion
+                //matches mfb pattern
+                Match match = Regex.Match(appliance, mfb_pattern);
+                String type = match.Groups[1].ToString();
+                String type_string = "";
+                switch (type)
+                {
+                    case "P":
+                        type_string = "Pumper";
+                        break;
+                    case "PT":
+                        type_string = "Pumper Tanker";
+                        break;
+                    case "BA":
+                        type_string = "Breathing Apparatus";
+                        break;
+                    case "BS":
+                        type_string = "Breathing Support";
+                        break;
+                    case "ZC":
+                        type_string = "Zone Car";
+                        break;
+                    case "WT":
+                        type_string = "Water Tanker";
+                        break;
+                    case "T":
+                        type_string = "Transporter";
+                        break;
+                    case "LP":
+                        type_string = "Ladder Platform";
+                        break;
+                    case "TB":
+                        type_string = "Teleboom";
+                        break;
+                    case "UP":
+                        type_string = "Ultra Large Pumper";
+                        break;
+                    case "CU":
+                        type_string = "Control Unit";
+                        break;
+                    case "HZ":
+                        type_string = "HAZMAT";
+                        break;
+                    case "R":
+                        type_string = "Rescue";
+                        break;
+                    case "AOC":
+                        type_string = "Acting Operations Commander";
+                        break;
+                    case "SCI":
+                        type_string = "Scientific Officer";
+                        break;
+                    case "RAC":
+                        type_string = "Acting Commander";
+                        break;
+                    case "FIU":
+                        type_string = "Fire Investigation";
+                        break;
+                    case "FB":
+                        type_string = "Fireboat";
+                        break;
+                   default:
+                        type_string = "Unknown";
+                        break;
+                }
+                returnString = type_string + " " + match.Groups[2] + match.Groups[3];
 
+            } else if (Regex.IsMatch(appliance,cfa_pattern))
+            {
+                String type_string = "";
+                Match match = Regex.Match(appliance,cfa_pattern);
+                switch (match.Groups[2].ToString())
+                {
+                    case "P":
+                        type_string = "Pumper";
+                        break;
+                    case "PT":
+                        type_string = "Pumper Tanker";
+                        break;
+                    case "SU":
+                        type_string = "Slip On";
+                        break;
+                    case "SV":
+                        type_string = "Salvage";
+                        break;
+                    case "TB":
+                        type_string = "Teleboom";
+                        break;
+                    case "LP":
+                        type_string = "Ladder Platform";
+                        break;
+                    case "FO":
+                        type_string = "FOV";
+                        break;
+                    case "T":
+                        type_string = "Tanker";
+                        break;
+                    case "BA":
+                        type_string = "Breathing Apparatus";
+                        break;
+                    case "HD":
+                        type_string = "Hazmat Detection";
+                        break;
+                    case "PE":
+                        type_string = "PE Van";
+                        break;
+                    case "HM":
+                        type_string = "Hazmat";
+                        break;
+                    case "R":
+                        type_string = "Rescue";
+                        break;
+                    case "FC":
+                        type_string = "FCV";
+                        break;
+                    case "CV":
+                        type_string = "MCV";
+                        break;
+                    case "CR":
+                        type_string = "Car";
+                        break;
+                    case "BF":
+                        type_string = "Big Fill";
+                        break;
+                    case "QF":
+                        type_string = "Quick Fill";
+                        break;
+                    case "LT":
+                        type_string = "Lighting";
+                        break;
+                }
+                returnString = match.Groups[1] + " " + type_string + " " + match.Groups[3];
+            }
             //Did we get any hits
             if (returnString == "")
             {
@@ -437,7 +495,7 @@ namespace MFBIncidentSource
             switch (mIncidentItem.Status)
             {
                 case MFBIncidentItem.MFBStatus.AlarmEscalated:
-                    lblStatus.Text = "ALMES";
+                    lblStatus.Text = "NYUC";
                     lblStatus.ForeColor = Color.Red;
                     break;
                 case MFBIncidentItem.MFBStatus.Initiated:
@@ -449,7 +507,7 @@ namespace MFBIncidentSource
                     lblStatus.ForeColor = Color.Orange;
                     break;
                 case MFBIncidentItem.MFBStatus.NotYetUnderControl:
-                    lblStatus.Text = "GOING";
+                    lblStatus.Text = "NYUC";
                     lblStatus.ForeColor = Color.Red;
                     break;
                 case MFBIncidentItem.MFBStatus.Stop:

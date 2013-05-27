@@ -43,11 +43,11 @@ namespace MFBIncidentSource
         public enum MFBStatus
         {
             Unknown = -1,
-            Stop = 0,
             Initiated = 1,
             Investigating = 2,
             NotYetUnderControl = 3,
             UnderControl = 5,
+            Stop = 6,
             AlarmEscalated = 7
         }
 
@@ -119,13 +119,16 @@ namespace MFBIncidentSource
             //Extract the location String
             locationString = addressString.Substring(suburbEnd + 2);
 
-            //Remove the closest cross streets (there will be a space before the / if the actual address isnt on a corner)
-            if (locationString.Contains(" /") == true)
+            //if the user does not want to view cross streets
+            if (!mParentSource.GetOptions().CrossStreets)
             {
-                //There is a ' /', the last / = the start of the cross refs, so remove them
-                locationString = locationString.Remove(locationString.LastIndexOf('/')-1);
+                //Remove the closest cross streets (there will be a space before the / if the actual address isnt on a corner)
+                if (locationString.Contains(" /") == true)
+                {
+                    //There is a ' /', the last / = the start of the cross refs, so remove them
+                    locationString = locationString.Remove(locationString.LastIndexOf('/') - 1);
+                }
             }
-
             Suburb = suburbString;
             Location = locationString;
         }
@@ -206,10 +209,10 @@ namespace MFBIncidentSource
                     returnString = "EMR";
                     break;
                 case MFBTypes.NonStructureFire:
-                    returnString = "Non-Structure";
+                    returnString = "Non Structure Fire";
                     break;
                 case MFBTypes.StructureFire:
-                    returnString = "Structure";
+                    returnString = "Structure Fire";
                     break;
                 case MFBTypes.FalseAlarm:
                     returnString = "False Alarm";
@@ -308,7 +311,7 @@ namespace MFBIncidentSource
                     returnString = "Investigating";
                     break;
                 case MFBStatus.NotYetUnderControl:
-                    returnString = "Going";
+                    returnString = "Not Yet Under Control";
                     break;
                 case MFBStatus.UnderControl:
                     returnString = "Under Control";
@@ -317,7 +320,7 @@ namespace MFBIncidentSource
                     returnString = "Alarm Escalated";
                     break;
                 case MFBStatus.Stop:
-                    returnString = "Safe";
+                    returnString = "Stop";
                     break;
                 default:
                     returnString = "Unknown";
@@ -348,6 +351,9 @@ namespace MFBIncidentSource
                         break;
                     case 5:
                         returnType = MFBStatus.UnderControl;
+                        break;
+                    case 6:
+                        returnType = MFBStatus.Stop;
                         break;
                     case 7:
                         returnType = MFBStatus.AlarmEscalated;
