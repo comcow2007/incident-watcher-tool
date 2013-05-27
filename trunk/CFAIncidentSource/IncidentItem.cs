@@ -354,11 +354,11 @@ namespace CFAIncidentSource
             if (type == IncidentType.Other)
                 return "Other";
             if (type == IncidentType.NonStructure)
-                return "Non-Structure";
+                return "Non Structure Fire";
             if (type == IncidentType.Structure)
-                return "Structure";
+                return "Structure Fire";
             if (type == IncidentType.GrassAndScrub)
-                return "Grass and Scrub";
+                return "Grass & Scrub";
             if (type == IncidentType.Rescue)
                 return "Rescue";
             if (type == IncidentType.Incident)

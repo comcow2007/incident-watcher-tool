@@ -50,6 +50,8 @@ namespace MFBIncidentSource
             this.btnApply = new System.Windows.Forms.Button();
             this.tbctlOptions = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtRadioStream = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDiamondActionArgs = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -83,10 +85,11 @@ namespace MFBIncidentSource
             this.grpAWSuburbs = new System.Windows.Forms.GroupBox();
             this.txtAWSuburbs = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtRadioStream = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkCrossStreets = new System.Windows.Forms.CheckBox();
             this.tbctlOptions.SuspendLayout();
             this.tabGeneral.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabAutowatch.SuspendLayout();
             this.grpAutoWatchOptions.SuspendLayout();
@@ -95,13 +98,13 @@ namespace MFBIncidentSource
             this.grpAWAppliances.SuspendLayout();
             this.grpAWLocations.SuspendLayout();
             this.grpAWSuburbs.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnResetToDefaults
             // 
             this.btnResetToDefaults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnResetToDefaults.Location = new System.Drawing.Point(4, 297);
+            this.btnResetToDefaults.Location = new System.Drawing.Point(4, 347);
             this.btnResetToDefaults.Name = "btnResetToDefaults";
             this.btnResetToDefaults.Size = new System.Drawing.Size(100, 23);
             this.btnResetToDefaults.TabIndex = 8;
@@ -113,7 +116,7 @@ namespace MFBIncidentSource
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(289, 297);
+            this.btnOK.Location = new System.Drawing.Point(289, 347);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 1;
@@ -126,7 +129,7 @@ namespace MFBIncidentSource
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(370, 297);
+            this.btnCancel.Location = new System.Drawing.Point(370, 347);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
@@ -138,7 +141,7 @@ namespace MFBIncidentSource
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApply.Enabled = false;
-            this.btnApply.Location = new System.Drawing.Point(451, 297);
+            this.btnApply.Location = new System.Drawing.Point(451, 347);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 5;
@@ -156,20 +159,39 @@ namespace MFBIncidentSource
             this.tbctlOptions.Location = new System.Drawing.Point(0, 0);
             this.tbctlOptions.Name = "tbctlOptions";
             this.tbctlOptions.SelectedIndex = 0;
-            this.tbctlOptions.Size = new System.Drawing.Size(526, 295);
+            this.tbctlOptions.Size = new System.Drawing.Size(526, 345);
             this.tbctlOptions.TabIndex = 9;
             // 
             // tabGeneral
             // 
+            this.tabGeneral.Controls.Add(this.groupBox3);
             this.tabGeneral.Controls.Add(this.groupBox2);
             this.tabGeneral.Controls.Add(this.groupBox1);
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(518, 269);
+            this.tabGeneral.Size = new System.Drawing.Size(518, 319);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtRadioStream);
+            this.groupBox2.Location = new System.Drawing.Point(8, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(501, 43);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Radio Stream";
+            // 
+            // txtRadioStream
+            // 
+            this.txtRadioStream.Location = new System.Drawing.Point(6, 15);
+            this.txtRadioStream.Name = "txtRadioStream";
+            this.txtRadioStream.Size = new System.Drawing.Size(489, 20);
+            this.txtRadioStream.TabIndex = 8;
+            this.txtRadioStream.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // groupBox1
             // 
@@ -498,30 +520,32 @@ namespace MFBIncidentSource
             this.openFileDialog.Filter = "EXE Files|*.exe";
             this.openFileDialog.Title = "Please select a listener application";
             // 
-            // groupBox2
+            // groupBox3
             // 
-            this.groupBox2.Controls.Add(this.txtRadioStream);
-            this.groupBox2.Location = new System.Drawing.Point(8, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(501, 43);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Radio Stream";
+            this.groupBox3.Controls.Add(this.checkCrossStreets);
+            this.groupBox3.Location = new System.Drawing.Point(8, 267);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(494, 44);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Address";
             // 
-            // txtRadioStream
+            // checkCrossStreets
             // 
-            this.txtRadioStream.Location = new System.Drawing.Point(6, 15);
-            this.txtRadioStream.Name = "txtRadioStream";
-            this.txtRadioStream.Size = new System.Drawing.Size(489, 20);
-            this.txtRadioStream.TabIndex = 8;
-            this.txtRadioStream.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.checkCrossStreets.AutoSize = true;
+            this.checkCrossStreets.Location = new System.Drawing.Point(6, 19);
+            this.checkCrossStreets.Name = "checkCrossStreets";
+            this.checkCrossStreets.Size = new System.Drawing.Size(115, 17);
+            this.checkCrossStreets.TabIndex = 1;
+            this.checkCrossStreets.Text = "Show cross streets";
+            this.checkCrossStreets.UseVisualStyleBackColor = true;
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(529, 323);
+            this.ClientSize = new System.Drawing.Size(529, 373);
             this.Controls.Add(this.tbctlOptions);
             this.Controls.Add(this.btnResetToDefaults);
             this.Controls.Add(this.btnOK);
@@ -534,6 +558,8 @@ namespace MFBIncidentSource
             this.Text = "MFB Public Feed Options";
             this.tbctlOptions.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabAutowatch.ResumeLayout(false);
@@ -547,8 +573,8 @@ namespace MFBIncidentSource
             this.grpAWLocations.PerformLayout();
             this.grpAWSuburbs.ResumeLayout(false);
             this.grpAWSuburbs.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -596,5 +622,7 @@ namespace MFBIncidentSource
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtRadioStream;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox checkCrossStreets;
     }
 }

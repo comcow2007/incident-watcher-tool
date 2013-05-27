@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InciWatch", "InciWatch\InciWatch.csproj", "{39C6B93A-9DC3-48B2-A2ED-0417B3841D50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFAIncidentSource", "CFAIncidentSource\CFAIncidentSource.csproj", "{74E9F4A3-E646-4B17-ABA1-FECCD3F24374}"

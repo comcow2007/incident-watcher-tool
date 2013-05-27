@@ -136,6 +136,7 @@ namespace MFBIncidentSource
         {
             //Get the radio stream
             mOptions.StreamURL = txtRadioStream.Text;
+            mOptions.CrossStreets = checkCrossStreets.Checked;
         }
 
         private void btnResetToDefaults_Click(object sender, EventArgs e)
@@ -232,6 +233,7 @@ namespace MFBIncidentSource
         {
             //Set the radio stream
             txtRadioStream.Text = mOptions.StreamURL;
+            checkCrossStreets.Checked = mOptions.CrossStreets;
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)

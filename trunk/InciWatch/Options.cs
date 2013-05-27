@@ -138,6 +138,7 @@ namespace InciWatch
             SetupStreamOptions();
             SetupWatchOptions();
             SetupProxyOptions();
+            SetupDisplayOptions();
         }
 
         private void SetupProxyOptions()
@@ -171,6 +172,12 @@ namespace InciWatch
             chkRunStreamOnWatch.Checked = mProgramOptions.OpenStreamOnWatch;
         }
 
+        private void SetupDisplayOptions()
+        {
+            checkUppercaseAddress.Checked = mProgramOptions.DisplayUppercase;
+            checkAutoResize.Checked = mProgramOptions.AutoSizeColumns;
+        }
+
         private void btnApply_Click(object sender, EventArgs e)
         {
             //Move the control values into the program options class
@@ -189,6 +196,7 @@ namespace InciWatch
             GetStreamData();
             GetWatchData();
             GetProxyData();
+            GetDisplayData();
         }
 
         private void GetProxyData()
@@ -220,6 +228,12 @@ namespace InciWatch
             mProgramOptions.OpenStreamOnWatch = chkRunStreamOnWatch.Checked;
         }
 
+        private void GetDisplayData()
+        {
+            mProgramOptions.DisplayUppercase = checkUppercaseAddress.Checked;
+            mProgramOptions.AutoSizeColumns = checkAutoResize.Checked;
+        }
+
         void BtnListenerPathBrowseClick(object sender, EventArgs e)
         {
         	if( openFileDialog.ShowDialog() == DialogResult.OK )
@@ -244,12 +258,15 @@ namespace InciWatch
             int BoxVal = 0;
             if (int.TryParse(txtGathererRefreshInterval.Text, out BoxVal) == true)
             {
-                if (BoxVal < 90 )
+                if (BoxVal < 30 )
                 {
-                    //90 Seconds is the minimum refresh time
-                    MessageBox.Show("Minimum refresh time is 90 Seconds. Lower than that could cause excessive server load on TFB and busy days and will not give any better results", AppConstants.ApplicationFriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    e.Cancel = true;
-                    txtGathererRefreshInterval.SelectAll();
+                    //no minimum refresh time but advice if less than 30 that it may be pointless/excessive server load
+                    DialogResult confirm = MessageBox.Show("A refresh time lower than 30 seconds can cause excessive server load and will not yield better results. Are you sure?", AppConstants.ApplicationFriendlyName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (confirm == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                        txtGathererRefreshInterval.SelectAll();
+                    }
                 }
             }
             else
@@ -452,6 +469,11 @@ namespace InciWatch
                     txtOldJobCutoffHours.SelectAll();
                 }
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
